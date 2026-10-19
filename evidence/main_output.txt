@@ -1,0 +1,54 @@
+Time-series exploration
+Datetime index: True
+Likely anomaly interval before algorithm: 12:50-13:00
+Observation: PM2.5 rises gradually, then jumps sharply from 47 at 12:45 to 95 at 12:50.
+Seasonality: no reliable seasonal pattern can be inferred from this short 65-minute series.
+
+Part B - Moving average and exponential smoothing
+       PM25_ug_m3  PM25_MA3  PM25_Smoothed  PM25_Difference
+Time                                                       
+12:10          31    29.667         29.320            1.680
+12:15          29    30.000         29.224           -0.224
+12:20          32    30.667         30.057            1.943
+12:25          35    32.000         31.540            3.460
+12:30          38    35.000         33.478            4.522
+12:35          41    38.000         35.734            5.266
+12:40          44    41.000         38.214            5.786
+12:45          47    44.000         40.850            6.150
+12:50          95    62.000         57.095           37.905
+12:55         110    84.000         72.966           37.034
+13:00         118   107.667         86.477           31.523
+
+Part C - Rolling anomaly detection
+       PM25_ug_m3  Rolling_Mean  Rolling_Std  Rolling_Threshold  Rolling_Anomaly
+Time                                                                            
+12:35          41        34.333        4.546              9.092            False
+12:40          44        36.500        5.612             11.225            False
+12:45          47        39.500        5.612             11.225            False
+12:50          95        50.000       22.450             44.900             True
+12:55         110        62.500       31.488             62.976            False
+13:00         118        75.833       35.695             71.391            False
+
+12:50 anomaly decision
+Observed PM2.5: 95
+Rolling mean: 50.000
+Rolling std: 22.450
+Threshold: 44.900
+Absolute difference: 45.000
+Anomaly: True
+
+Part D - Method comparison
+Rolling threshold detected: 12:50
+Global z-score detected: 13:00
+False positives cannot be verified without ground-truth labels.
+Rolling threshold reacts faster here because it flags the first large jump at 12:50, while the global z-score flags 13:00.
+
+Sensitivity experiment
+ multiplier            detected_points
+        2.0                      12:50
+        1.5 12:25, 12:30, 12:50, 12:55
+
+Operational recommendation
+Dashboard: current PM2.5, recent trend, rolling mean, rolling threshold, and anomaly status.
+Alert: trigger when |PM2.5 - rolling_mean| is greater than 2 x rolling_std.
+Communication: show a visible dashboard warning and notify campus operations staff.

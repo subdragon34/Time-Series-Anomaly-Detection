@@ -1,0 +1,27 @@
+{
+  "12:50": {
+    "observed": 95.0,
+    "rolling_mean": 50.0,
+    "rolling_std_sample": 22.44994432064365,
+    "threshold": 44.8998886412873,
+    "absolute_difference": 45.0,
+    "anomaly": true
+  },
+  "detected": {
+    "rolling": [
+      "12:50"
+    ],
+    "global_zscore": [
+      "13:00"
+    ]
+  },
+  "parameters": {
+    "moving_average_window": 3,
+    "smoothing_alpha": 0.3,
+    "rolling_window": 6,
+    "rolling_std_ddof": 1,
+    "rolling_multiplier": 2.0,
+    "global_zscore_std_ddof": 0,
+    "zscore_cutoff": 2.0
+  }
+}

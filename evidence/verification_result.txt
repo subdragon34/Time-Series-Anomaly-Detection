@@ -1,0 +1,1 @@
+Verified: 14 input rows, datetime index, Part B moving average, 12:50 rolling calculation, rolling detection at 12:50, z-score detection at 13:00, generated tables and plots.

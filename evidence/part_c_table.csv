@@ -1,0 +1,7 @@
+Time,PM25_ug_m3,Rolling_Mean,Rolling_Std,Rolling_Threshold,Rolling_Anomaly
+12:35,41,34.333,4.546,9.092,False
+12:40,44,36.5,5.612,11.225,False
+12:45,47,39.5,5.612,11.225,False
+12:50,95,50.0,22.45,44.9,True
+12:55,110,62.5,31.488,62.976,False
+13:00,118,75.833,35.695,71.391,False
