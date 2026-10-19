@@ -38,9 +38,3 @@ python main.py
 ## Expected main result
 
 The visually suspicious PM2.5 interval is 12:50-13:00. The rolling rule flags the initial jump at 12:50. The global z-score flags 13:00.
-
-## Evidence on your computer
-
-Run `python main.py` and save a screenshot of the 12:50 decision and method comparison. The generated CSV tables, plots, and calculation_check.json are already in the project. Add your own screenshots only if the instructor requests them.
-
-The individual task code, GitHub URL/commit and signature in the report must be confirmed or completed before final submission.
